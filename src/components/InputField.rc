@@ -1,0 +1,22 @@
+const { name, type, value } = props;
+
+const id = Math.floor(Math.random() * Math.pow(2, 32)).toString(36) + '-' + name;
+let elem;
+
+value.onChange(val => {
+    if (elem) {
+        elem.value = val;
+    }
+});
+
+function bindValue(ev) {
+    if (!elem) {
+        elem = ev.target;
+    }
+    value.setValue(elem.value);
+}
+
+div class="input-field" <
+    input bind:id="id" bind:type="type" class="validate" bind:value="value" on:change="bindValue" <>
+    label bind:for="id" class="active" <children <>>
+>

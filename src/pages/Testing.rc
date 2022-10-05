@@ -1,0 +1,43 @@
+import { counter, urmom, mainColor } from '../states';
+
+const sidebar = state('counter');
+const sideItems = [
+    {
+        title: 'Counter',
+        value: 'counter'
+    },
+    {
+        title: "Your Mom's name",
+        value: 'urmom'
+    }
+];
+
+function addCounter() {
+    counter.value++;
+}
+
+const btnColor = stateObserve(mainColor, color => 'btn ' + color);
+
+div <
+    div class="row container" <
+        div class="col s4" <
+            SideBar title="Testing" bind:items="sideItems" bind:sideState="sidebar" bind:color="mainColor" <>
+        >
+        div class="col s8" <
+            div class="card-panel" <
+                if state:val="sidebar" equal="counter" <
+                    h4 <Counter>
+                    Click Counter : {counter} br<>
+                    button bind:class="btnColor" on:click="addCounter" <Increase>
+                >
+                if state:val="sidebar" equal="urmom" <
+                    h4 <Your Mom's name>
+                    Your mom : b<{urmom}> br <>
+                    InputField name="Your mom" type="text" bind:value="urmom" <
+                        Fill to change your mom:
+                    >
+                >
+            >
+        >
+    >
+>

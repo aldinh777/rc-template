@@ -1,0 +1,56 @@
+const { title, items, color, initial } = props;
+let { navState } = props;
+
+if (!navState) {
+    if (!initial) {
+        throw Error('Supply at least either `navState` or `initial` as props');
+    }
+    navState = state(initial);
+}
+
+const tabsObj = {};
+const tabList = [];
+for (const tab of items) {
+    const active = state(false);
+    const linkClass = stateObserve(active, (active) => (active ? 'active' : ''));
+    const tabClass = stateObserve(linkClass, (val) => 'tab ' + val);
+    const obj = {
+        title: tab.title,
+        active: active,
+        linkClass: linkClass,
+        tabClass: tabClass,
+        onClick() {
+            navState.value = tab.value;
+        }
+    };
+    tabsObj[tab.value] = obj;
+    tabList.push(obj);
+}
+observe(navState, (next, prev) => {
+    if (!tabsObj[next]) {
+        throw Error('Invalid navbar value "' + next + '"');
+    }
+    tabsObj[prev].active.value = false;
+    tabsObj[next].active.value = true;
+});
+
+const navClass = typeof color === 'object'
+    ? stateObserve(color, (color) => 'nav-extended center ' + color)
+    : 'nav-extended center ' + (color || '');
+
+div <
+    nav bind:class="navClass" <
+        div class="nav-wrapper" <
+            a href="#" class="brand-logo center" <{title}>
+        >
+        div class="nav-content" <
+            ul class="tabs tabs-transparent" <
+                foreach list="tabList" destruct="title:tabTitle linkClass tabClass onClick" <
+                    li bind:class="tabClass" on:click="onClick" <
+                        a bind:class="linkClass" <{tabTitle}>
+                    >
+                >
+            >
+        >
+    >
+>

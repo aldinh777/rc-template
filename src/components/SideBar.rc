@@ -1,0 +1,53 @@
+const { title, items, color, initial } = props;
+let { sideState } = props;
+
+if (!sideState) {
+    if (!initial) {
+        throw Error('Supply at least either `sideState` or `initial` as props');
+    }
+    sideState = state(initial);
+}
+
+const tabsObj = {};
+const tabList = [];
+for (const tab of items) {
+    const active = state(false);
+    const tabClass =
+        typeof color === 'object'
+            ? stateObserveAll([active, color], ([active, color]) =>
+                  active
+                      ? 'collection-item active ' + color + ' lighten-1'
+                      : 'collection-item ' + color + '-text'
+              )
+            : stateObserve(active, (active) =>
+                  active
+                      ? 'collection-item active ' + color + ' lighten-1'
+                      : 'collection-item ' + color + '-text'
+              );
+    const obj = {
+        title: tab.title,
+        active: active,
+        tabClass: tabClass,
+        onClick() {
+            sideState.value = tab.value;
+        }
+    };
+    tabsObj[tab.value] = obj;
+    tabList.push(obj);
+}
+observe(sideState, (next, prev) => {
+    if (!tabsObj[next]) {
+        throw Error('Invalid sidebar value "' + next + '"');
+    }
+    tabsObj[prev].active.value = false;
+    tabsObj[next].active.value = true;
+});
+
+div class="container" <
+    h4 <{title}>
+>
+div class="collection" <
+    foreach list="tabList" destruct="title tabClass onClick" <
+        a bind:class="tabClass" on:click="onClick" <{title}>
+    >
+>

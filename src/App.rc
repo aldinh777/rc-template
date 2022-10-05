@@ -1,0 +1,22 @@
+import { navbar, mainColor } from './states';
+
+const navItems = [
+    {
+        title: 'Homepage',
+        value: 'home'
+    },
+    {
+        title: 'Testing Lab',
+        value: 'test'
+    }
+];
+
+div <
+    NavBar title="Reactive-CML" bind:items="navItems" bind:navState="navbar" bind:color="mainColor" <>
+    if state:val="navbar" equal="home" <
+        Home <>
+    >
+    if state:val="navbar" equal="test" <
+        Testing <>
+    >
+>

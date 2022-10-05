@@ -1,0 +1,27 @@
+import { counter, urmom, mainColor } from '../states';
+
+const setColor = (color) => () => mainColor.value = color;
+const setPurple = setColor('purple');
+const setRed = setColor('red');
+const setOrange = setColor('orange');
+const setGreen = setColor('green');
+const setBlue = setColor('blue');
+
+div class="container" <
+    h3 <Hello, world!>
+    p <
+        update file at code< b <src/pages/Home.rc>> to modify this page
+    >
+    h5 <Global States>
+    ul <
+        li <counter : {counter}>
+        li <ur mom : {urmom}>
+    >
+    h5 <Theme>
+    current Theme : b <{mainColor}> br <>
+    button class="btn purple" on:click="setPurple" <Purple>
+    button class="btn red" on:click="setRed" <Red>
+    button class="btn orange" on:click="setOrange" <Orange>
+    button class="btn green" on:click="setGreen" <Green>
+    button class="btn blue" on:click="setBlue" <Blue>
+>
