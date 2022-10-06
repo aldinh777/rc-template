@@ -34,7 +34,7 @@ observe(navState, (next, prev) => {
     tabsObj[next].active.value = true;
 });
 
-const navClass = typeof color === 'object'
+const navClass = color instanceof State
     ? stateObserve(color, (color) => 'nav-extended center ' + color)
     : 'nav-extended center ' + (color || '');
 

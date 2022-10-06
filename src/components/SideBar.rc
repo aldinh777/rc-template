@@ -13,7 +13,7 @@ const tabList = [];
 for (const tab of items) {
     const active = state(false);
     const tabClass =
-        typeof color === 'object'
+        color instanceof State
             ? stateObserveAll([active, color], ([active, color]) =>
                   active
                       ? 'collection-item active ' + color + ' lighten-1'
