@@ -7,11 +7,15 @@ import { terser } from 'rollup-plugin-terser';
 
 const { startServer } = require('./server/app');
 
-const mode = process.env.MODE || 'development';
-if (mode === 'development') {
-    startServer();
+const MODE = process.env.MODE || 'development';
+const HOST = process.env.HOST || '127.0.0.1';
+const PORT = process.env.PORT || '777';
+
+const devplugin = MODE === 'development' ? livereload('dist') : terser();
+
+if (MODE === 'development') {
+    startServer(PORT, HOST);
 }
-const devplugin = mode === 'development' ? livereload('dist') : terser();
 
 export default {
     input: 'index.js',
@@ -29,7 +33,7 @@ export default {
                 relativeImports: {
                     includes: [join(__dirname, 'src/components'), join(__dirname, 'src/pages')]
                 }
-            },
+            }
         }),
         devplugin
     ]
