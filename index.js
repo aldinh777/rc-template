@@ -1,4 +1,10 @@
 import { append } from '@aldinh777/reactive-cml/dom/dom-util';
 import App from './src/App.rc';
 
-append(document.querySelector('#app'), App());
+try {
+    append(document.querySelector('#app'), App());
+} catch (e) {
+    const err = document.createElement('pre');
+    err.innerText = e;
+    document.body.appendChild(err);
+}

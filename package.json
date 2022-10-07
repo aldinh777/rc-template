@@ -9,9 +9,9 @@
   "author": "aldinh777",
   "license": "ISC",
   "devDependencies": {
-    "@aldinh777/reactive": "^0.25.1",
-    "@aldinh777/reactive-cml": "^0.10.13",
-    "@aldinh777/rollup-plugin-reactive-cml": "^0.3.5",
+    "@aldinh777/reactive": "^0.26.0",
+    "@aldinh777/reactive-cml": "^0.10.15",
+    "@aldinh777/rollup-plugin-reactive-cml": "^0.3.7",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^14.1.0",
     "rollup": "^2.79.0",
