@@ -1,4 +1,4 @@
-import { counter, urmom, mainColor } from '../states';
+import { counter, urmom, mainColor } from '../store';
 
 const sidebar = stateLocalStorage('testing_sidebar', 'counter');
 const sideItems = [

@@ -1,4 +1,4 @@
-import { navbar, mainColor } from './states';
+import { navbar, mainColor } from './store';
 
 const navItems = [
     {

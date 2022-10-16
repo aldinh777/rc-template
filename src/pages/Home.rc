@@ -1,4 +1,4 @@
-import { counter, urmom, mainColor } from '../states';
+import { counter, urmom, mainColor } from '../store';
 
 const setColor = (color) => () => mainColor.value = color;
 const setPurple = setColor('purple');
