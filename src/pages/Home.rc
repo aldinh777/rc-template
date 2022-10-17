@@ -1,4 +1,4 @@
-import { counter, urmom, mainColor } from '../store';
+import { counter, urmom, todo, todoIsEmpty, mainColor } from '../store';
 
 const setColor = (color) => () => mainColor.value = color;
 const setPurple = setColor('purple');
@@ -16,6 +16,19 @@ div class="container" <
     ul <
         li <counter : {counter}>
         li <ur mom : {urmom}>
+        li <
+            todos:
+            if state:val="todoIsEmpty" <
+                * Nothing *
+            >
+            unless state:val="todoIsEmpty" <
+                ul <
+                    foreach collect:list="todo" as="item" <
+                        li <## {item} ##>
+                    >
+                >
+            >
+        >
     >
     h5 <Theme>
     current Theme : b <{mainColor}> br <>

@@ -1,6 +1,7 @@
-import { counter, urmom, mainColor } from '../store';
+import { counter, urmom, todo, todoIsEmpty, mainColor } from '../store';
 
 const sidebar = stateLocalStorage('testing_sidebar', 'counter');
+const btnColor = stateObserve(mainColor, color => 'btn ' + color);
 const sideItems = [
     {
         title: 'Counter',
@@ -9,14 +10,33 @@ const sideItems = [
     {
         title: "Your Mom's name",
         value: 'urmom'
+    },
+    {
+        title: 'To do List',
+        value: 'todolist',
     }
 ];
+
+const todoInput = state('');
+const todoMapped = mapview(todo, (item) => ({
+    item: item,
+    delete() {
+        const index = todo.raw.indexOf(item);
+        if (index !== -1) {
+            todo.splice(index, 1);
+        }
+    }
+}));
+todoInput.onChange((item, prev) => {
+    if (item) {
+        todo.push(item);
+    }
+    todoInput.value = '';
+});
 
 function addCounter() {
     counter.value++;
 }
-
-const btnColor = stateObserve(mainColor, color => 'btn ' + color);
 
 div <
     div class="row container" <
@@ -33,8 +53,29 @@ div <
                 if state:val="sidebar" equal="urmom" <
                     h4 <Your Mom's name>
                     Your mom : b<{urmom}> br <>
-                    InputField name="Your mom" type="text" bind:value="urmom" <
+                    InputField name="urmom" type="text" bind:value="urmom" <
                         Fill to change your mom:
+                    >
+                >
+                if state:val="sidebar" equal="todolist" <
+                    h4 <To do List>
+                    if state:val="todoIsEmpty" <
+                        * todo list is empty *
+                    >
+                    unless state:val="todoIsEmpty" <
+                        div class="collection" <
+                            foreach collect:list="todoMapped" destruct="item delete" <
+                                div class="collection-item row valign-wrapper" <
+                                    div class="col s8" <{item}>
+                                    div class="col s4 right-align" <
+                                        button bind:class="btnColor" on:click="delete" <delete>
+                                    >
+                                >
+                            >
+                        >
+                    >
+                    InputField name="todo" type="text" bind:value="todoInput" <
+                        press enter to add something
                     >
                 >
             >
