@@ -1,4 +1,4 @@
-import { counter, urmom, todo, todoIsEmpty, mainColor } from '../store';
+import { counter, urmom, todo, todoIsEmpty, mainColor, btnColor } from '../store';
 
 const setColor = (color) => () => mainColor.value = color;
 const setPurple = setColor('purple');
@@ -7,6 +7,9 @@ const setOrange = setColor('orange');
 const setGreen = setColor('green');
 const setBlue = setColor('blue');
 
+const increaseFromHome = () => counter.value++;
+
+
 div class="container" <
     h3 <Hello, world!>
     p <
@@ -14,6 +17,7 @@ div class="container" <
     >
     h5 <Global States>
     ul <
+        button bind:class="btnColor" on:click="increaseFromHome" <increase Counter from home>
         li <counter : {counter}>
         li <ur mom : {urmom}>
         li <

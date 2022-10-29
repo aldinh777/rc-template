@@ -1,7 +1,6 @@
-import { counter, urmom, todo, todoIsEmpty, mainColor } from '../store';
+import { counter, urmom, todo, todoIsEmpty, mainColor, btnColor } from '../store';
 
 const sidebar = stateLocalStorage('testing_sidebar', 'counter');
-const btnColor = stateObserve(mainColor, color => 'btn ' + color);
 const sideItems = [
     {
         title: 'Counter',
