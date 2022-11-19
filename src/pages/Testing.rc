@@ -40,7 +40,11 @@ function addCounter() {
 div <
     div class="row container" <
         div class="col s4" <
-            SideBar title="Testing" bind:items="sideItems" bind:sideState="sidebar" bind:color="mainColor" <>
+            SideBar
+                title="Testing"
+                bind:items="sideItems"
+                bind:sideState="sidebar"
+                bind:color="mainColor" <>
         >
         div class="col s8" <
             div class="card-panel" <
@@ -67,7 +71,9 @@ div <
                                 div class="collection-item row valign-wrapper" <
                                     div class="col s8" <{item}>
                                     div class="col s4 right-align" <
-                                        button bind:class="btnColor" on:click="delete" <delete>
+                                        button bind:class="btnColor" on:click="delete" <
+                                            delete
+                                        >
                                     >
                                 >
                             >

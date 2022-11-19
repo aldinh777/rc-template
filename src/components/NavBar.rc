@@ -45,9 +45,11 @@ div <
         >
         div class="nav-content" <
             ul class="tabs tabs-transparent" <
-                foreach list="tabList" destruct="title:tabTitle linkClass tabClass onClick" <
-                    li bind:class="tabClass" on:click="onClick" <
-                        a bind:class="linkClass" <{tabTitle}>
+                foreach
+                    list="tabList"
+                    destruct="title:tabTitle linkClass tabClass onClick" <
+                        li bind:class="tabClass" on:click="onClick" <
+                            a bind:class="linkClass" <{tabTitle}>
                     >
                 >
             >
