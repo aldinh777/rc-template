@@ -17,6 +17,11 @@ function bindValue(ev) {
 }
 
 div class="input-field" <
-    input bind:id="id" bind:type="type" class="validate" bind:value="value" on:change="bindValue" <>
+    input
+        bind:id="id"
+        bind:type="type"
+        class="validate"
+        bind:value="value"
+        on:change="bindValue" <>
     label bind:for="id" class="active" <children <>>
 >
