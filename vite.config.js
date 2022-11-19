@@ -9,7 +9,7 @@ export default defineConfig({
             parserOptions: {
                 trimCML: true,
                 relativeImports: {
-                    includes: [join(__dirname, 'src/components'), join(__dirname, 'src/pages')]
+                    includes: [join(__dirname, 'src')]
                 }
             }
         })
