@@ -3,9 +3,10 @@ let { navState } = props;
 
 if (!navState) {
     if (!initial) {
-        throw Error('Supply at least either `navState` or `initial` as props');
+        navState = state(initial);
+    } else {
+        navState = state(items[0]?.value || '');
     }
-    navState = state(initial);
 }
 
 const tabsObj = {};
@@ -27,11 +28,12 @@ for (const tab of items) {
     tabList.push(obj);
 }
 observe(navState, (next, prev) => {
-    if (!tabsObj[next]) {
-        throw Error('Invalid navbar value "' + next + '"');
+    if (tabsObj[next]) {
+        tabsObj[prev].active.value = false;
+        tabsObj[next].active.value = true;
+    } else {
+        navState.value = items[0]?.value || '';
     }
-    tabsObj[prev].active.value = false;
-    tabsObj[next].active.value = true;
 });
 
 const navClass = typeof color === 'string'
@@ -47,7 +49,7 @@ div <
             ul class="tabs tabs-transparent" <
                 foreach
                     list="tabList"
-                    destruct="title:tabTitle linkClass tabClass onClick" <
+                    extract="title:tabTitle linkClass tabClass onClick" <
                         li bind:class="tabClass" on:click="onClick" <
                             a bind:class="linkClass" <{tabTitle}>
                     >

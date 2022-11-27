@@ -8,7 +8,3 @@ export const btnColor = stateObserve(mainColor, color => 'btn ' + color);
 export const counter = state(0);
 export const urmom = state('isabella');
 export const todo = statelist([]);
-export const todoLength = state(todo.raw.length);
-todo.onInsert(() => (todoLength.value = todo.raw.length));
-todo.onDelete(() => (todoLength.value = todo.raw.length));
-export const todoIsEmpty = stateObserve(todoLength, (length) => length <= 0);

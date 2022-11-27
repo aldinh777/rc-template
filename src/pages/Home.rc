@@ -1,4 +1,4 @@
-import { counter, urmom, todo, todoIsEmpty, mainColor, btnColor } from '../store';
+import { counter, urmom, todo, mainColor, btnColor } from '../store';
 
 const setColor = (color) => () => mainColor.value = color;
 const setPurple = setColor('purple');
@@ -8,7 +8,6 @@ const setGreen = setColor('green');
 const setBlue = setColor('blue');
 
 const increaseFromHome = () => counter.value++;
-
 
 div class="container" <
     h3 <Hello, world!>
@@ -26,14 +25,10 @@ div class="container" <
         li <ur mom : {urmom}>
         li <
             todos:
-            if state:val="todoIsEmpty" <
-                * Nothing *
-            >
-            unless state:val="todoIsEmpty" <
-                ul <
-                    foreach collect:list="todo" as="item" <
-                        li <## {item} ##>
-                    >
+            ListVerify bind:list="todo" <
+                slot for="empty" <* Nothing *>                
+                foreach collect:list="todo" as="item" <
+                    li <## {item} ##>
                 >
             >
         >

@@ -1,4 +1,4 @@
-import { counter, urmom, todo, todoIsEmpty, mainColor, btnColor } from '../store';
+import { counter, urmom, todo, mainColor, btnColor } from '../store';
 
 const sidebar = stateLocalStorage('testing_sidebar', 'counter');
 const sideItems = [
@@ -47,27 +47,26 @@ div <
                 bind:color="mainColor" <>
         >
         div class="col s8" <
-            div class="card-panel" <
-                if state:val="sidebar" equal="counter" <
-                    h4 <Counter>
+            if state:value="sidebar" equal="counter" <
+                Article title="Counter" <
                     Click Counter : {counter} br<>
                     button bind:class="btnColor" on:click="addCounter" <Increase>
                 >
-                if state:val="sidebar" equal="urmom" <
-                    h4 <Your Mom's name>
+            >
+            if state:value="sidebar" equal="urmom" <
+                Article title="Your Mom's name" <
                     Your mom : b<{urmom}> br <>
                     InputField name="urmom" type="text" bind:value="urmom" <
                         Fill to change your mom:
                     >
                 >
-                if state:val="sidebar" equal="todolist" <
-                    h4 <To do List>
-                    if state:val="todoIsEmpty" <
-                        * todo list is empty *
-                    >
-                    unless state:val="todoIsEmpty" <
+            >
+            if state:value="sidebar" equal="todolist" <
+                Article title="To do List" <
+                    ListVerify bind:list="todoMapped" <
+                        slot for="empty" <* todo list is empty *>
                         div class="collection" <
-                            foreach collect:list="todoMapped" destruct="item delete" <
+                            foreach collect:list="todoMapped" extract="item delete" <
                                 div class="collection-item row valign-wrapper" <
                                     div class="col s8" <{item}>
                                     div class="col s4 right-align" <
