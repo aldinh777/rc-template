@@ -19,7 +19,7 @@ const sideItems = [
 const todoInput = state('');
 const todoMapped = mapview(todo, (item) => ({
     item: item,
-    delete() {
+    del() {
         const index = todo.raw.indexOf(item);
         if (index !== -1) {
             todo.splice(index, 1);
@@ -66,11 +66,11 @@ div <
                     ListVerify bind:list="todoMapped" <
                         slot for="empty" <* todo list is empty *>
                         div class="collection" <
-                            foreach collect:list="todoMapped" extract="item delete" <
+                            foreach collect:list="todoMapped" extract="item del" <
                                 div class="collection-item row valign-wrapper" <
                                     div class="col l8" <{item}>
                                     div class="col l4 right-align" <
-                                        button bind:class="btnColor" on:click="delete" <
+                                        button bind:class="btnColor" on:click="del" <
                                             delete
                                         >
                                     >
