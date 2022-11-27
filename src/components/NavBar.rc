@@ -43,7 +43,7 @@ const navClass = typeof color === 'string'
 div <
     nav bind:class="navClass" <
         div class="nav-wrapper" <
-            a href="#" class="brand-logo center" <{title}>
+            a href="#" class="center" <{title}>
         >
         div class="nav-content" <
             ul class="tabs tabs-transparent" <

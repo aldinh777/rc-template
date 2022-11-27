@@ -39,14 +39,14 @@ function addCounter() {
 
 div <
     div class="row container" <
-        div class="col s4" <
+        div class="col l4" <
             SideBar
                 title="Testing"
                 bind:items="sideItems"
                 bind:sideState="sidebar"
                 bind:color="mainColor" <>
         >
-        div class="col s8" <
+        div class="col l8" <
             if state:value="sidebar" equal="counter" <
                 Article title="Counter" <
                     Click Counter : {counter} br<>
@@ -68,8 +68,8 @@ div <
                         div class="collection" <
                             foreach collect:list="todoMapped" extract="item delete" <
                                 div class="collection-item row valign-wrapper" <
-                                    div class="col s8" <{item}>
-                                    div class="col s4 right-align" <
+                                    div class="col l8" <{item}>
+                                    div class="col l4 right-align" <
                                         button bind:class="btnColor" on:click="delete" <
                                             delete
                                         >
