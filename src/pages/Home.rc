@@ -26,9 +26,11 @@ div class="container" <
         li <
             todos:
             ListVerify bind:list="todo" <
-                slot for="empty" <* Nothing *>                
-                foreach collect:list="todo" as="item" <
-                    li <## {item} ##>
+                slot for="empty" <* Nothing *>
+                ul <
+                    foreach collect:list="todo" as="item" <
+                        li <## {item} ##>
+                    >
                 >
             >
         >
