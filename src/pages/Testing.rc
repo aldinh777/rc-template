@@ -65,13 +65,15 @@ div <
                 Article title="To do List" <
                     ListVerify bind:list="todoMapped" <
                         slot for="empty" <* todo list is empty *>
-                        div class="collection" <
-                            foreach collect:list="todoMapped" extract="item del" <
-                                div class="collection-item row valign-wrapper" <
-                                    div class="col l8" <{item}>
-                                    div class="col l4 right-align" <
-                                        button bind:class="btnColor" on:click="del" <
-                                            delete
+                        slot <
+                            div class="collection" <
+                                foreach collect:list="todoMapped" extract="item del" <
+                                    div class="collection-item row valign-wrapper" <
+                                        div class="col l8" <{item}>
+                                        div class="col l4 right-align" <
+                                            button bind:class="btnColor" on:click="del" <
+                                                delete
+                                            >
                                         >
                                     >
                                 >
