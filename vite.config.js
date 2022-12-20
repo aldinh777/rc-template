@@ -7,7 +7,6 @@ export default defineConfig({
         rcml({
             useDefaultLibs: true,
             parserOptions: {
-                trimCML: true,
                 relativeImports: {
                     includes: [join(__dirname, 'src')]
                 }

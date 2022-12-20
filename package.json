@@ -4,14 +4,15 @@
   "description": "Base Template for Reactive-CML projects",
   "main": "index.js",
   "scripts": {
-    "dev": "vite dev"
+    "dev": "vite dev",
+    "build": "vite build"
   },
   "author": "aldinh777",
   "license": "ISC",
   "devDependencies": {
-    "@aldinh777/reactive-cml": "^0.12.14",
+    "@aldinh777/reactive-cml": "^0.12.18",
     "@aldinh777/rollup-plugin-reactive-cml": "^0.3.10",
-    "vite": "^3.2.1"
+    "vite": "^4.0.2"
   },
   "dependencies": {
     "@aldinh777/reactive": "^0.28.2",
