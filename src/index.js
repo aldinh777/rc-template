@@ -9,5 +9,5 @@ try {
     const pre = document.createElement('pre');
     pre.innerText = err;
     document.body.appendChild(pre);
-    throw err;
+    console.error(err);
 }

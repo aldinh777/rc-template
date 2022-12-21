@@ -9,6 +9,13 @@
     </head>
     <body>
         <div id="app"></div>
+        <script>
+            window.onerror = function (msg, src, line, col, err) {
+                const pre = document.createElement('pre');
+                pre.innerText = `${msg}` + `\n\t(at ${src}` + `:${line}:${col})`;
+                document.body.appendChild(pre);
+            };
+        </script>
         <script type="module" src="/src/index.js"></script>
         <script src="/js/materialize.min.js"></script>
     </body>
