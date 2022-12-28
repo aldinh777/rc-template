@@ -4,5 +4,5 @@ div class="card-panel" <
     h4 <{title}>
     p <
         children <>
-    >{a}
+    >
 >
