@@ -1,13 +1,5 @@
 const { title, items, color, initial } = props;
-let { sideState } = props;
-
-if (!sideState) {
-    if (initial) {
-        sideState = state(initial);
-    } else {
-        sideState = state(items[0]?.value || '');
-    }
-}
+const sideState = props.sideState || (props.initial ? state(initial) : state(items[0]?.value || ''));
 
 const tabsObj = {};
 const tabList = [];

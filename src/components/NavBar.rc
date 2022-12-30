@@ -1,13 +1,5 @@
 const { title, items, color, initial } = props;
-let { navState } = props;
-
-if (!navState) {
-    if (!initial) {
-        navState = state(initial);
-    } else {
-        navState = state(items[0]?.value || '');
-    }
-}
+const navState = props.navState || (props.initial ? state(initial) : state(items[0]?.value || ''));
 
 const tabsObj = {};
 const tabList = [];
@@ -47,9 +39,7 @@ div <
         >
         div class="nav-content" <
             ul class="tabs tabs-transparent" <
-                foreach
-                    list="tabList"
-                    extract="title:tabTitle linkClass tabClass onClick" <
+                foreach list="tabList" extract="title:tabTitle linkClass tabClass onClick" <
                         li bind:class="tabClass" on:click="onClick" <
                             a bind:class="linkClass" <{tabTitle}>
                     >
