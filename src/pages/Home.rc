@@ -16,11 +16,9 @@ div class="container" <
     >
     h5 <Global States>
     ul <
-        button
-            bind:class="btnColor"
-            on:click="increaseFromHome" <
-                increase Counter from home
-            >
+        button bind:class="btnColor" on:click="increaseFromHome" <
+            increase Counter from home
+        >
         li <counter : {counter}>
         li <ur mom : {urmom}>
         li <

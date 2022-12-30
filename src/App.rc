@@ -13,7 +13,7 @@ const navItems = [
 
 div <
     NavBar
-        title="RCML Demo"
+        title="Reactive CML Demo"
         bind:items="navItems"   
         bind:navState="navbar"
         bind:color="mainColor" <>
