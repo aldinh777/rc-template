@@ -1,4 +1,4 @@
-import { mount, _doc } from '../dev-lib/reactive-cml/dom/dom-util';
+import { mount, _doc } from '@aldinh777/reactive-cml/dom/dom-util';
 import App from './App.rc';
 
 try {
