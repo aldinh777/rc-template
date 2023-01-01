@@ -1,0 +1,10 @@
+import { counter, btnColor } from '../../store';
+
+function addCounter() {
+    counter.value++;
+}
+
+component <
+    Click Counter : {counter} br <>
+    button bind:class="btnColor" on:click="addCounter" <Increase>
+>

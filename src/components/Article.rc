@@ -1,7 +1,7 @@
 const { title } = props;
 
 div class="card-panel" <
-    h4 <{title}>
+    h4 <{ title }>
     p <
         children <>
     >

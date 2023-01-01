@@ -38,10 +38,10 @@ observe(sideState, (next, prev) => {
 });
 
 div class="container" <
-    h4 <{title}>
+    h4 <{ title }>
 >
 div class="collection" <
     foreach list="tabList" extract="title tabClass onClick" <
-        a bind:class="tabClass" on:click="onClick" <{title}>
+        a bind:class="tabClass" on:click="onClick" <{ title }>
     >
 >

@@ -1,11 +1,11 @@
-import { append } from '@aldinh777/reactive-cml/dom/dom-util';
+import { mount, _doc } from '../dev-lib/reactive-cml/dom/dom-util';
 import App from './App.rc';
 
 try {
-    append(document.querySelector('#app'), App());
+    mount(_doc.querySelector('#app'), App());
 } catch (err) {
     const pre = document.createElement('pre');
     pre.innerText = err.stack;
-    document.body.appendChild(pre);
+    _doc.body.appendChild(pre);
     console.error(err);
 }

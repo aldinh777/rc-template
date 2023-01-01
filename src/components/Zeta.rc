@@ -1,0 +1,22 @@
+const teks = state('');
+
+let interval;
+    
+context.onMount = function() {
+    interval = setInterval(() => {
+        if (teks.value.length > 32) {
+            clearInterval(interval);
+        } else {
+            teks.value += 'o';
+        }
+    }, 200);
+}
+
+context.onDismount = function() {
+    teks.value = '';
+    clearInterval(interval);
+}
+
+div <
+    Zeta : b <"no{ teks }!">
+>

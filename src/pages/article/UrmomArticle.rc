@@ -1,0 +1,8 @@
+import { urmom } from '../../store';
+
+component <
+    Your mom : b<{urmom}> br <>
+    InputField name="urmom" type="text" bind:value="urmom" <
+        Fill to change your mom:
+    >
+>

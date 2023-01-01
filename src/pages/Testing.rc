@@ -1,4 +1,4 @@
-import { counter, urmom, todo, mainColor, btnColor } from '../store';
+import { mainColor } from '../store';
 
 const sidebar = stateLocalStorage('testing_sidebar', 'counter');
 const sideItems = [
@@ -13,29 +13,13 @@ const sideItems = [
     {
         title: 'To do List',
         value: 'todolist',
+    },
+    {
+        title: 'Lifecycle of cat',
+        value: 'zeta',
     }
 ];
 
-const todoInput = state('');
-const todoMapped = mapview(todo, (item) => ({
-    item: item,
-    del() {
-        const index = todo.raw.indexOf(item);
-        if (index !== -1) {
-            todo.splice(index, 1);
-        }
-    }
-}));
-todoInput.onChange((item, prev) => {
-    if (item) {
-        todo.push(item);
-    }
-    todoInput.value = '';
-});
-
-function addCounter() {
-    counter.value++;
-}
 
 div <
     div class="row container" <
@@ -49,40 +33,22 @@ div <
         div class="col l8" <
             if state:value="sidebar" equal="counter" <
                 Article title="Counter" <
-                    Click Counter : {counter} br<>
-                    button bind:class="btnColor" on:click="addCounter" <Increase>
+                    CounterArticle <>
                 >
             >
             if state:value="sidebar" equal="urmom" <
                 Article title="Your Mom's name" <
-                    Your mom : b<{urmom}> br <>
-                    InputField name="urmom" type="text" bind:value="urmom" <
-                        Fill to change your mom:
-                    >
+                    UrmomArticle <>
                 >
             >
             if state:value="sidebar" equal="todolist" <
                 Article title="To do List" <
-                    ListVerify bind:list="todoMapped" <
-                        slot for="empty" <* todo list is empty *>
-                        slot <
-                            div class="collection" <
-                                foreach collect:list="todoMapped" extract="item del" <
-                                    div class="collection-item row valign-wrapper" <
-                                        div class="col l8" <{item}>
-                                        div class="col l4 right-align" <
-                                            button bind:class="btnColor" on:click="del" <
-                                                delete
-                                            >
-                                        >
-                                    >
-                                >
-                            >
-                        >
-                    >
-                    InputField name="todo" type="text" bind:value="todoInput" <
-                        press enter to add something
-                    >
+                    TodoListArticle <>
+                >
+            >
+            if state:value="sidebar" equal="zeta" <
+                Article title="Lifecycle of Cat" <
+                    Zeta <>
                 >
             >
         >
