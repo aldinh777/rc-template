@@ -10,10 +10,8 @@ value.addListener((val) => {
 });
 
 function bindValue(ev) {
-    if (!elem) {
-        elem = ev.target;
-    }
-    value.setValue(elem.value);
+    elem = ev.target;
+    value.setValue(ev.target.value);
 }
 
 div class="input-field" <
