@@ -11,11 +11,11 @@ const todoMapped = mapview(todo, (item) => ({
 }));
 
 const todoInput = state('');
+
 todoInput.onChange((item, prev) => {
     if (item) {
         todo.push(item);
     }
-    todoInput.value = '';
 });
 
 component <
@@ -36,7 +36,7 @@ component <
             >
         >
     >
-    InputField name="todo" type="text" bind:value="todoInput" <
+    InputField name="todo" bind:value="todoInput" reset="true" <
         press enter to add something
     >
 >

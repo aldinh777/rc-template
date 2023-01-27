@@ -2,7 +2,7 @@ import { urmom } from '../../store';
 
 component <
     Your mom : b<{urmom}> br <>
-    InputField name="urmom" type="text" bind:value="urmom" <
+    InputField name="urmom" bind:value="urmom" live="true" <
         Fill to change your mom:
     >
 >
