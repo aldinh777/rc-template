@@ -1,6 +1,6 @@
 import { todo, mainColor, btnColor } from '../../store';
 
-const todoMapped = mapview(todo, (item) => ({
+const todoMapped = maplist(todo, (item) => ({
     item: item,
     del() {
         const index = todo.raw.indexOf(item);
