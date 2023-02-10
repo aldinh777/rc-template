@@ -10,7 +10,7 @@
   "author": "aldinh777",
   "license": "ISC",
   "devDependencies": {
-    "@aldinh777/reactive-cml": "^0.16.10",
+    "@aldinh777/reactive-cml": "^0.17.1",
     "@aldinh777/rollup-plugin-reactive-cml": "^0.5.2",
     "vite": "^4.0.3"
   },
