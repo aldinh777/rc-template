@@ -1,9 +1,10 @@
 const { list } = props;
 
 const length = state(list.raw.length);
+const [isEmpty] = stateObserve(length, (length) => length <= 0);
+
 list.onInsert(() => (length.value = list.raw.length));
 list.onDelete(() => (length.value = list.raw.length));
-const isEmpty = stateObserve(length, (length) => length <= 0);
 
 div <
     if state:value="isEmpty" <

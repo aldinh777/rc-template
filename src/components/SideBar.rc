@@ -5,7 +5,7 @@ const tabsObj = {};
 const tabList = [];
 for (const tab of items) {
     const active = state(false);
-    const tabClass =
+    const [tabClass] =
         typeof color === 'string'
             ? stateObserve(active, (active) =>
                   active

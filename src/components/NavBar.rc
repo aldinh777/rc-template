@@ -5,8 +5,8 @@ const tabsObj = {};
 const tabList = [];
 for (const tab of items) {
     const active = state(false);
-    const linkClass = stateObserve(active, (active) => (active ? 'active' : ''));
-    const tabClass = stateObserve(linkClass, (val) => 'tab ' + val);
+    const [linkClass] = stateObserve(active, (active) => (active ? 'active' : ''));
+    const [tabClass] = stateObserve(linkClass, (val) => 'tab ' + val);
     const obj = {
         title: tab.title,
         active: active,
@@ -30,7 +30,7 @@ observe(navState, (next, prev) => {
 
 const navClass = typeof color === 'string'
     ? 'nav-extended center ' + (color || '')
-    : stateObserve(color, (color) => 'nav-extended center ' + color);
+    : stateObserve(color, (color) => 'nav-extended center ' + color)[0];
 
 div <
     nav bind:class="navClass" <

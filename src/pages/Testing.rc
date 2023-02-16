@@ -1,6 +1,6 @@
 import { mainColor } from '../store';
 
-const sidebar = stateLocalStorage('testing_sidebar', 'counter');
+const [sidebar] = stateLocalStorage('testing_sidebar', 'counter');
 const sideItems = [
     {
         title: 'Counter',
