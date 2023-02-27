@@ -20,7 +20,6 @@ const sideItems = [
     }
 ];
 
-
 div <
     div class="row container" <
         div class="col l4" <

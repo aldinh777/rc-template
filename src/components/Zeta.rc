@@ -1,20 +1,17 @@
 const teks = state('');
 
-let interval;
-    
 component.onMount = function() {
-    interval = setInterval(() => {
+    const interval = setInterval(() => {
         if (teks.value.length > 32) {
             clearInterval(interval);
         } else {
             teks.value += 'o';
         }
     }, 200);
-}
-
-component.onDismount = function() {
-    teks.value = '';
-    clearInterval(interval);
+    return () => {
+        teks.value = '';
+        clearInterval(interval);
+    }
 }
 
 div <
